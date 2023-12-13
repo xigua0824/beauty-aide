@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beauty.aide.mapper.AccountDAO">
+    <resultMap id="resultMap" type="com.beauty.aide.model.entity.AccountDO">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="account" column="account" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+        <result property="headImg" column="head_img" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="fields">
+        `id`,`account`,`password`,
+        `nick_name`,`head_img`,`create_time`,
+        `update_time`,`status`
+    </sql>
+
+    <insert id="insert" parameterType="com.beauty.aide.model.entity.AccountDO"
+            useGeneratedKeys="true" keyProperty="id">
+
+        insert into `account`
+        (`status`,
+         `create_time`,
+         `update_time`,
+         `account`,
+         `password`,
+         `nick_name`,
+         `head_img`)
+
+        values ("111",
+                now(),
+                now(),
+                #{account},
+                #{password},
+                #{nickName},
+                #{headImg});
+    </insert>
+
+
+    <update id="update" parameterType="com.beauty.aide.model.entity.AccountDO">
+
+        UPDATE `account`
+        SET `update_time` = now(),
+            `nick_name` = #{nickName},
+            `head_img` = #{headImg},
+            `account` = #{account},
+            `password` = #{password}
+        WHERE id = #{id}
+
+    </update>
+
+    <update id="updateName">
+
+        UPDATE `account`
+        SET `update_time` = now(),
+            `nick_name` = #{nickName}
+        WHERE id = #{id}
+
+    </update>
+
+    <update id="updateStatusById">
+        UPDATE `account`
+        SET `status` = #{status}
+        where id = #{id}
+    </update>
+
+    <select id="getById" parameterType="long" resultMap="resultMap">
+        SELECT <include refid="fields"/>
+        FROM `account`
+        WHERE id = #{id}
+    </select>
+
+    <select id="getInfo"  resultMap="resultMap">
+        SELECT <include refid="fields"/>
+        FROM `account`
+        WHERE account = #{account}
+        AND password = #{password}
+    </select>
+
+    <select id="getByAccount" resultMap="resultMap">
+        SELECT <include refid="fields"/>
+        FROM `account`
+        WHERE account = #{account}
+    </select>
+
+
+    <select id="search" parameterType="com.beauty.aide.common.so.AccountSO" resultMap="resultMap">
+        SELECT <include refid="fields"/>
+        FROM `account`
+        WHERE 1 = 1
+        <if test="so.nickName != null and so.nickName != ''">
+            AND `nick_name` LIKE CONCAT('%', #{so.nickName},'%')
+        </if>
+        <if test="so.account != null and so.account != ''">
+            AND `account` LIKE CONCAT('%', #{so.account},'%')
+        </if>
+        ORDER BY account.id DESC
+        <if test="so.skip != null and so.limit != null and so.limit > 0">
+            LIMIT #{so.skip}, #{so.limit}
+        </if>
+
+    </select>
+
+    <select id="searchCount" parameterType="com.beauty.aide.common.so.AccountSO" resultType="integer">
+        SELECT count(*)
+        FROM `account`
+        WHERE 1 = 1
+        <if test="so.nickName != null and so.nickName != ''">
+            AND `nick_name` LIKE CONCAT('%', #{so.nickName},'%')
+        </if>
+        <if test="so.account != null and so.account != ''">
+            AND `account` LIKE CONCAT('%', #{so.account},'%')
+        </if>
+
+    </select>
+
+</mapper>
