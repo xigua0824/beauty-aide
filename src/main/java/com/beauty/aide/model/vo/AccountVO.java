@@ -1,4 +1,4 @@
-package com.beauty.aide.common.vo;
+package com.beauty.aide.model.vo;
 
 import lombok.Data;
 

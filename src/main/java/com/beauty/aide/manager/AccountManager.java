@@ -2,7 +2,7 @@ package com.beauty.aide.manager;
 
 import com.beauty.aide.common.errors.ErrorCode;
 import com.beauty.aide.common.errors.UserErrorCode;
-import com.beauty.aide.common.vo.AccountVO;
+import com.beauty.aide.model.vo.AccountVO;
 import com.beauty.aide.constant.UserConstant;
 import com.beauty.aide.exception.BusinessException;
 import com.beauty.aide.mapper.AccountDAO;
@@ -77,6 +77,11 @@ public class AccountManager {
         return accountDO;
     }
 
+    /**
+     * 获取当前登录账户
+     * @param request
+     * @return
+     */
     public AccountVO getLoginUser(HttpServletRequest request) {
         AccountVO accountVO = (AccountVO) request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
         if (accountVO == null) {
