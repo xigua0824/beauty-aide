@@ -1,4 +1,4 @@
-package com.beauty.aide.common.so;
+package com.beauty.aide.model.so;
 
 import lombok.Data;
 

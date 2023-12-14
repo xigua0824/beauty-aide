@@ -89,7 +89,7 @@
     </select>
 
 
-    <select id="search" parameterType="com.beauty.aide.common.so.AccountSO" resultMap="resultMap">
+    <select id="search" parameterType="com.beauty.aide.model.so.AccountSO" resultMap="resultMap">
         SELECT <include refid="fields"/>
         FROM `account`
         WHERE 1 = 1
@@ -106,7 +106,7 @@
 
     </select>
 
-    <select id="searchCount" parameterType="com.beauty.aide.common.so.AccountSO" resultType="integer">
+    <select id="searchCount" parameterType="com.beauty.aide.model.so.AccountSO" resultType="integer">
         SELECT count(*)
         FROM `account`
         WHERE 1 = 1

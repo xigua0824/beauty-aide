@@ -3,11 +3,11 @@ package com.beauty.aide.controller;
 import com.beauty.aide.common.errors.CommonErrorCode;
 import com.beauty.aide.common.errors.UserErrorCode;
 import com.beauty.aide.common.result.ResultDO;
-import com.beauty.aide.common.vo.AccountVO;
 import com.beauty.aide.constant.UserConstant;
 import com.beauty.aide.manager.AccountManager;
 import com.beauty.aide.mapper.AccountDAO;
 import com.beauty.aide.model.entity.AccountDO;
+import com.beauty.aide.model.vo.AccountVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -175,5 +175,7 @@ public class AccountController {
         request.getSession().removeAttribute(UserConstant.USER_LOGIN_STATE);
         return ResultDO.succOf();
     }
+
+    // @TODO 注销账户
 
 }

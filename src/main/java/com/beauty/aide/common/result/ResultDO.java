@@ -8,10 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author ruixiang.crx
- * @date 2021/11/29
- */
+
 @Data
 public class ResultDO<T> implements Serializable {
 

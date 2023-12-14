@@ -1,10 +1,9 @@
 package com.beauty.aide.mapper;
 
-import com.beauty.aide.common.so.AccountSO;
-import com.beauty.aide.common.so.UserSO;
+import com.beauty.aide.model.so.AccountSO;
+import com.beauty.aide.model.so.UserSO;
 import com.beauty.aide.model.entity.AccountDO;
 import org.apache.ibatis.annotations.Param;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 
