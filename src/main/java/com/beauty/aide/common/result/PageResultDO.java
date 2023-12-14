@@ -6,10 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author ruixiang.crx
- * @date 2022/01/25
- */
+
 @Data
 public class PageResultDO<T> {
 

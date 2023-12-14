@@ -1,9 +1,9 @@
 package com.beauty.aide.aop;
 
 import com.beauty.aide.common.errors.ErrorCode;
-import com.beauty.aide.common.vo.AccountVO;
 import com.beauty.aide.constant.UserConstant;
 import com.beauty.aide.exception.BusinessException;
+import com.beauty.aide.model.vo.AccountVO;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.servlet.HandlerInterceptor;

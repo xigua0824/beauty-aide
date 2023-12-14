@@ -1,9 +1,5 @@
 package com.beauty.aide.common.errors;
 
-/**
- * @author ruixiang.crx
- * @date 2021/11/29
- */
 public enum UserErrorCode implements IErrorCode {
 
     USER_NOT_EXIST("用户不存在"),
