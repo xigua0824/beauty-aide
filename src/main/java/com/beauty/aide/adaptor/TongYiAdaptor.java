@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class TongYiAdaptor implements InitializingBean {
 
-    @Value("aliyun.cloud.accesskey")
+    @Value("${aliyun.cloud.adminAk}")
     private String adminAk;
-    @Value("aliyun.cloud.accesskey.secret")
+    @Value("${aliyun.cloud.adminSk}")
     private String adminSk;
-    @Value("aliyun.tongyi.agentKey")
+    @Value("${aliyun.tongyi.agentKey}")
     private String agentKey;
-    @Value("aliyun.tongyi.appId")
+    @Value("${aliyun.tongyi.appId}")
     private String appId;
     private ApplicationClient client;
 
