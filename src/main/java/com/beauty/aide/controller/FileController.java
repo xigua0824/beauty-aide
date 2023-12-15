@@ -4,13 +4,13 @@
 //import com.beauty.aide.common.result.BaseResponse;
 //import com.beauty.aide.common.errors.ErrorCode;
 //import com.beauty.aide.common.result.ResultUtils;
-//import com.beauty.aide.model.vo.AccountVO;
+//import com.beauty.aide.common.model.vo.AccountVO;
 //import com.beauty.aide.constant.FileConstant;
 //import com.beauty.aide.exception.BusinessException;
 //import com.beauty.aide.manager.AccountManager;
 //import com.beauty.aide.manager.CosManager;
-//import com.beauty.aide.model.dto.file.UploadFileRequest;
-//import com.beauty.aide.model.enums.FileUploadBizEnum;
+//import com.beauty.aide.common.model.dto.file.UploadFileRequest;
+//import com.beauty.aide.common.enums.FileUploadBizEnum;
 //
 //import java.io.File;
 //import java.util.Arrays;
