@@ -19,23 +19,23 @@ spring:
   # todo 需替换配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/beauty_aide
-    username: root
+    url: jdbc:mysql://60.204.200.61:13306/beauty_aide
+    username: xigua
     password: 123456
   # Redis 配置
   # todo 需替换配置，然后取消注释
-#  redis:
-#    database: 1
-#    host: localhost
-#    port: 6379
-#    timeout: 5000
-#    password: 123456
+  #  redis:
+  #    database: 1
+  #    host: localhost
+  #    port: 6379
+  #    timeout: 5000
+  #    password: 123456
   # Elasticsearch 配置
   # todo 需替换配置，然后取消注释
-#  elasticsearch:
-#    uris: http://localhost:9200
-#    username: root
-#    password: 123456
+  #  elasticsearch:
+  #    uris: http://localhost:9200
+  #    username: root
+  #    password: 123456
   # 文件上传
   servlet:
     multipart:
@@ -62,11 +62,11 @@ mybatis-plus:
 
 aliyun:
   cloud:
-    accesskey: LTAI5t97j4dEvijjJE2xuVwv
-      secret: CfFnYd052f0Qi1cNQXwCaxx9GaIelT
+    adminAk: LTAI5t97j4dEvijjJE2xuVwv
+    adminSk: CfFnYd052f0Qi1cNQXwCaxx9GaIelT
   oss:
-    endpoint:
-    bucket:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    bucket: beauty-aide-test
   tongyi:
     appId: 3a7426fd5ddd4a2288eeddbeaa6a634d
     agentKey: 96d4cdddc267462da85903da00c9b3b9_p_efm

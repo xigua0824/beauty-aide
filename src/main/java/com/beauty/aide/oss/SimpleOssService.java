@@ -24,13 +24,13 @@ import java.util.Date;
 @Service
 public class SimpleOssService implements InitializingBean {
 
-    @Value("aliyun.oss.bucket")
+    @Value("${aliyun.oss.bucket}")
     private String bucket;
-    @Value("aliyun.oss.endpoint")
+    @Value("${aliyun.oss.endpoint}")
     private String endpoint;
-    @Value("aliyun.cloud.accesskey")
+    @Value("${aliyun.cloud.adminAk}")
     private String adminAk;
-    @Value("aliyun.cloud.accesskey.secret")
+    @Value("${aliyun.cloud.adminSk}")
     private String adminSk;
     private OSS oss;
 
