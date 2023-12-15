@@ -1,6 +1,8 @@
-package com.beauty.aide.model.vo;
+package com.beauty.aide.common.model.vo;
 
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author xiaoliu
@@ -12,5 +14,8 @@ public class AccountVO {
     private String account;
     private String headImg;
     private String nickName;
+    private Long roleId;
+    private String roleName;
+    private String statusDesc;
 
 }

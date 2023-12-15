@@ -1,5 +1,12 @@
 package com.beauty.aide.constant;
 
+import com.beauty.aide.common.enums.UserRoleEnum;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * 用户常量
  *
@@ -11,22 +18,10 @@ public interface UserConstant {
      */
     String USER_LOGIN_STATE = "user_login";
 
-    //  region 权限
+//    Map<String, List<String>> ROLE_PERMISSION = new HashMap<String, List<String>>(){{
+//        put(UserRoleEnum.SUPER_ADMIN.name(), Arrays.asList("/**"));
+//        put(UserRoleEnum.ADMIN.name(), Arrays.asList("/**"));
+//        put(UserRoleEnum.COMMON_USER.name(), Arrays.asList(""));
+//    }};
 
-    /**
-     * 默认角色
-     */
-    String DEFAULT_ROLE = "user";
-
-    /**
-     * 管理员角色
-     */
-    String ADMIN_ROLE = "admin";
-
-    /**
-     * 被封号
-     */
-    String BAN_ROLE = "ban";
-
-    // endregion
 }

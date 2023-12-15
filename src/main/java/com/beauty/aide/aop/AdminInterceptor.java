@@ -1,9 +1,7 @@
 package com.beauty.aide.aop;
 
-import com.beauty.aide.common.errors.ErrorCode;
 import com.beauty.aide.constant.UserConstant;
-import com.beauty.aide.exception.BusinessException;
-import com.beauty.aide.model.vo.AccountVO;
+import com.beauty.aide.common.model.vo.AccountVO;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -19,9 +17,9 @@ import java.util.List;
 @Component
 public class AdminInterceptor implements HandlerInterceptor {
 
-
     private static final List<String> NO_LOGIN_PATHS = Arrays.asList(
-            "/api/account/**"
+            "/api/account/register",
+            "/api/account/login"
     );
 
     public static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();
@@ -38,10 +36,9 @@ public class AdminInterceptor implements HandlerInterceptor {
                     return true;
                 }
             }
-//            return false;
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户密码过短");
-
-//            throw new BusinessException(CommonErrorCode.NOT_PERMISSION.getMessage());
+            throw new IllegalStateException("111");
+        }else {
+            // @TODO 已登录，查看是否拥有接口权限
         }
         return true;
     }

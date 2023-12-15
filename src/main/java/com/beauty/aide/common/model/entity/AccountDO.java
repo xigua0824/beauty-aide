@@ -1,4 +1,4 @@
-package com.beauty.aide.model.entity;
+package com.beauty.aide.common.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AccountDO extends BaseDO {
 
+    private Long roleId;
     private String account;
     private String password;
     private String headImg;

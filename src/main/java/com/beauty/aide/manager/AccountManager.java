@@ -1,12 +1,14 @@
 package com.beauty.aide.manager;
 
+import com.beauty.aide.common.enums.AccountStatusEnum;
+import com.beauty.aide.common.enums.UserRoleEnum;
 import com.beauty.aide.common.errors.ErrorCode;
 import com.beauty.aide.common.errors.UserErrorCode;
-import com.beauty.aide.model.vo.AccountVO;
+import com.beauty.aide.common.model.vo.AccountVO;
 import com.beauty.aide.constant.UserConstant;
 import com.beauty.aide.exception.BusinessException;
 import com.beauty.aide.mapper.AccountDAO;
-import com.beauty.aide.model.entity.AccountDO;
+import com.beauty.aide.common.model.entity.AccountDO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
@@ -49,7 +51,7 @@ public class AccountManager {
         if (accountDO.getAccount().length() < 4) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户账号过短");
         }
-        if (accountDO.getPassword().length() < 8) {
+        if (accountDO.getPassword().length() < 5) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户密码过短");
         }
         return true;
@@ -68,6 +70,8 @@ public class AccountManager {
     public AccountVO do2Vo(AccountDO accountDO) {
         AccountVO vo = new AccountVO();
         BeanUtils.copyProperties(accountDO, vo);
+        vo.setStatusDesc(AccountStatusEnum.getByName(accountDO.getStatus()));
+        vo.setRoleName(UserRoleEnum.getByCode(accountDO.getRoleId()));
         return vo;
     }
 
@@ -79,6 +83,7 @@ public class AccountManager {
 
     /**
      * 获取当前登录账户
+     *
      * @param request
      * @return
      */
@@ -88,5 +93,27 @@ public class AccountManager {
             throw new BusinessException(UserErrorCode.USER_NOT_LOGIN.getMessage());
         }
         return accountVO;
+    }
+
+    /**
+     * 是否为管理员
+     *
+     * @return
+     */
+    public boolean isAdmin(Long roleId) {
+        return roleId.equals(UserRoleEnum.SUPER_ADMIN.getCode()) || roleId.equals(UserRoleEnum.ADMIN.getCode());
+    }
+
+    /**
+     * 是否为超级管理员
+     * @param request
+     * @return
+     */
+    public boolean isSuperAdmin(HttpServletRequest request) {
+        AccountVO accountVO = (AccountVO) request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
+        if (accountVO == null) {
+            return false;
+        }
+        return accountVO.getRoleId().equals(UserRoleEnum.SUPER_ADMIN.getCode());
     }
 }

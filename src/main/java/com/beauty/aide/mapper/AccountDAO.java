@@ -1,8 +1,7 @@
 package com.beauty.aide.mapper;
 
-import com.beauty.aide.model.so.AccountSO;
-import com.beauty.aide.model.so.UserSO;
-import com.beauty.aide.model.entity.AccountDO;
+import com.beauty.aide.common.model.so.AccountSO;
+import com.beauty.aide.common.model.entity.AccountDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public interface AccountDAO {
 
     int updateName(@Param("id") Long id, @Param("nickName") String nickName);
 
-    List<AccountDO> search(@Param("so") UserSO search);
+    List<AccountDO> search(@Param("so") AccountSO search);
 
     int searchCount(@Param("so") AccountSO search);
 

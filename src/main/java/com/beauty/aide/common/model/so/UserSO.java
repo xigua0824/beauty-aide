@@ -1,4 +1,4 @@
-package com.beauty.aide.model.so;
+package com.beauty.aide.common.model.so;
 
 import lombok.Data;
 
@@ -6,8 +6,8 @@ import lombok.Data;
  * @author xiaoliu
  */
 @Data
-public class AccountSO extends BaseSO{
+public class UserSO extends BaseSO{
     private static final long serialVersionUID = -4243742749263159391L;
-    private String nickName;
+    private String userName;
     private String account;
 }

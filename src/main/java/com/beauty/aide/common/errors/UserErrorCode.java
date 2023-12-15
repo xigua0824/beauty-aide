@@ -15,6 +15,7 @@ public enum UserErrorCode implements IErrorCode {
     PASSWORD_ERROR_TOO_MANY("密码错误次数过多，请2小时后再试"),
 
     PHONE_NUM_USED("手机号已被占用"),
+    ACCOUNT_SUSPENDED("账号已被封禁"),
     ;
     /**
      * 错误信息

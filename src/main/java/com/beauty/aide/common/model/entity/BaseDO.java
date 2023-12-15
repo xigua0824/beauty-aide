@@ -1,4 +1,4 @@
-package com.beauty.aide.model.entity;
+package com.beauty.aide.common.model.entity;
 
 import lombok.Data;
 
