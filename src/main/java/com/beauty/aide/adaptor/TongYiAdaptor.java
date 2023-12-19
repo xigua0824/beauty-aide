@@ -30,8 +30,7 @@ public class TongYiAdaptor implements InitializingBean {
         AccessTokenClient tokenClient = new AccessTokenClient(adminAk, adminSk, agentKey);
         String token = tokenClient.getToken();
         BaiLianConfig config = new BaiLianConfig().setApiKey(token);
-        ApplicationClient client = new ApplicationClient(config);
-        client = new ApplicationClient(config);
+        this.client = new ApplicationClient(config);
     }
 
 
@@ -41,13 +40,14 @@ public class TongYiAdaptor implements InitializingBean {
      * @param prompt
      * @return
      */
-    public String sendChatRequest(String prompt) {
+    public String sendChatRequest(String prompt, String uuid) {
         CompletionsRequest request = new CompletionsRequest()
                 .setAppId(appId)
+                // 上下文会话id
+                .setSessionId(uuid)
                 .setPrompt(prompt);
         CompletionsResponse response = client.completions(request);
         String content = response.getData().getText();
-        content = content.substring(0, content.lastIndexOf("<sup>"));
         return content;
     }
 

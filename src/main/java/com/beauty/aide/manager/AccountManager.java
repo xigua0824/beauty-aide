@@ -88,9 +88,13 @@ public class AccountManager {
      * @return
      */
     public AccountVO getLoginUser(HttpServletRequest request) {
+        if (request == null) {
+            return null;
+        }
         AccountVO accountVO = (AccountVO) request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
         if (accountVO == null) {
-            throw new BusinessException(UserErrorCode.USER_NOT_LOGIN.getMessage());
+//            throw new BusinessException(UserErrorCode.USER_NOT_LOGIN.getMessage());
+            return null;
         }
         return accountVO;
     }
