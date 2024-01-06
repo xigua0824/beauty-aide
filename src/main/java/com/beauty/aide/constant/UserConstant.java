@@ -18,10 +18,4 @@ public interface UserConstant {
      */
     String USER_LOGIN_STATE = "user_login";
 
-//    Map<String, List<String>> ROLE_PERMISSION = new HashMap<String, List<String>>(){{
-//        put(UserRoleEnum.SUPER_ADMIN.name(), Arrays.asList("/**"));
-//        put(UserRoleEnum.ADMIN.name(), Arrays.asList("/**"));
-//        put(UserRoleEnum.COMMON_USER.name(), Arrays.asList(""));
-//    }};
-
 }

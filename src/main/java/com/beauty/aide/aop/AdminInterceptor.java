@@ -36,7 +36,8 @@ public class AdminInterceptor implements HandlerInterceptor {
                     return true;
                 }
             }
-            throw new IllegalStateException("111");
+//            throw new IllegalStateException("没权限,已拦截");
+            return false;
         }else {
             // @TODO 已登录，查看是否拥有接口权限
         }
