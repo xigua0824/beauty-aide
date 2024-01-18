@@ -1,9 +1,11 @@
 package com.beauty.aide.common.model.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @author xiaoliu
@@ -15,17 +17,18 @@ public class BaseDO implements Serializable {
     /**
      * 主键
      */
+    @TableId(value = "id",type = IdType.AUTO)
     protected Long id;
 
     /**
      * 创建时间
      */
-    protected Date createTime;
+    protected LocalDateTime createTime;
 
     /**
      * 修改时间
      */
-    protected Date updateTime;
+    protected LocalDateTime updateTime;
 
     /**
      * 状态
