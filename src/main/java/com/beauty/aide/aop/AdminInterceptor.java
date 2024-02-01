@@ -1,5 +1,8 @@
 package com.beauty.aide.aop;
 
+import com.alibaba.fastjson.JSON;
+import com.beauty.aide.common.errors.UserErrorCode;
+import com.beauty.aide.common.result.ResultDO;
 import com.beauty.aide.constant.UserConstant;
 import com.beauty.aide.common.model.vo.AccountVO;
 import org.springframework.stereotype.Component;
@@ -29,16 +32,18 @@ public class AdminInterceptor implements HandlerInterceptor {
         AccountVO accountVO = (AccountVO) request.getSession().getAttribute(UserConstant.USER_LOGIN_STATE);
         String uri = request.getRequestURI();
 
-        // 未登录 抛异常
         if (accountVO == null) {
             for (String path : NO_LOGIN_PATHS) {
                 if (PATH_MATCHER.match(path, uri)) {
                     return true;
                 }
             }
-//            throw new IllegalStateException("没权限,已拦截");
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json;charset=UTF-8");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().println(JSON.toJSONString(ResultDO.errorOf(UserErrorCode.USER_NOT_LOGIN)));
             return false;
-        }else {
+        } else {
             // @TODO 已登录，查看是否拥有接口权限
         }
         return true;
