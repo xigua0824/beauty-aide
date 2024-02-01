@@ -17,7 +17,7 @@ public class BaseDO implements Serializable {
     /**
      * 主键
      */
-    @TableId(value = "id",type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     protected Long id;
 
     /**

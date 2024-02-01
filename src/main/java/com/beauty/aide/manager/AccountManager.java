@@ -3,7 +3,6 @@ package com.beauty.aide.manager;
 import com.beauty.aide.common.enums.AccountStatusEnum;
 import com.beauty.aide.common.enums.UserRoleEnum;
 import com.beauty.aide.common.errors.ErrorCode;
-import com.beauty.aide.common.errors.UserErrorCode;
 import com.beauty.aide.common.model.vo.AccountVO;
 import com.beauty.aide.constant.UserConstant;
 import com.beauty.aide.exception.BusinessException;

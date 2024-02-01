@@ -2,8 +2,6 @@ package com.beauty.aide.common.model.vo;
 
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * @author xiaoliu
  */
