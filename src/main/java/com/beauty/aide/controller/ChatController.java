@@ -3,12 +3,14 @@ package com.beauty.aide.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.beauty.aide.adaptor.TongYiAdaptor;
 import com.beauty.aide.common.enums.CommonStatusEnum;
+import com.beauty.aide.common.model.entity.AccountDO;
 import com.beauty.aide.common.model.entity.QuestionRecordDO;
 import com.beauty.aide.common.model.vo.AccountVO;
 import com.beauty.aide.common.model.vo.QuestionRecordVO;
 import com.beauty.aide.common.result.ResultDO;
 import com.beauty.aide.manager.AccountManager;
 import com.beauty.aide.manager.QuestionRecordManager;
+import com.beauty.aide.mapper.AccountDAO;
 import com.beauty.aide.mapper.QuestionRecordDAO;
 import com.beauty.aide.utils.CommonUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +42,8 @@ public class ChatController {
     private TongYiAdaptor tongYiAdaptor;
     @Resource
     private QuestionRecordDAO questionRecordDAO;
+    @Resource
+    AccountDAO accountDAO;
 
     /**
      * 发送提问
@@ -50,7 +54,9 @@ public class ChatController {
      */
     @PostMapping("/sendMessage")
     public ResultDO<String> sendMessage(String question, String uuid) {
-        AccountVO user = accountManager.getLoginUser(request);
+//        AccountVO user = accountManager.getLoginUser(request);
+        AccountDO user = accountDAO.getByAccount("admin2");
+
         String message = tongYiAdaptor.sendChatRequest(question, uuid);
         // 存储问题数据库
         QuestionRecordDO questionRecord = new QuestionRecordDO();

@@ -13,10 +13,7 @@ import com.beauty.aide.common.model.entity.AccountDO;
 import com.beauty.aide.common.model.so.AccountSO;
 import com.beauty.aide.common.model.vo.AccountVO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +45,7 @@ public class AdminAccountController {
      * @return
      */
     @GetMapping("/getList")
+    @CrossOrigin
     public PageResultDO<List<AccountVO>> getList(AccountSO search) {
         int count = accountDAO.searchCount(search);
         search.calSkip();

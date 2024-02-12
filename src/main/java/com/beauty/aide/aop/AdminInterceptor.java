@@ -22,7 +22,9 @@ public class AdminInterceptor implements HandlerInterceptor {
 
     private static final List<String> NO_LOGIN_PATHS = Arrays.asList(
             "/api/account/register",
-            "/api/account/login"
+            "/api/account/login",
+            "/api/admin/account/getList",
+            "/api/chat/sendMessage"
     );
 
     public static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();
